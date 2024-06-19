@@ -1,1 +1,28 @@
+class GeorgeAi:
+    def __init__(self):
+        self.responses = {
+            "Hola": "¡Hola! ¿En qué puedo ayudarte?",
+            "Adiós": "¡Hasta luego! Que tengas un buen día.",
+        }
 
+    def get_response(self, message):
+        if message in self.responses:
+            return self.responses[message]
+        else:
+            return "Lo siento, no comprendo. ¿Podrías ser más específico?"
+
+    def learn_from_interaction(self, message, response):
+        if message not in self.responses:
+            self.responses[message] = response
+            print("Aprendiendo... ¡he mejorado mi capacidad de respuesta!")
+        else:
+            print("Ya conozco la respuesta a esa pregunta.")
+
+# Instanciar el chatbot
+george_ai = GeorgeAi()
+
+# Ejemplo de interacción
+print(george_ai.get_response("Hola"))
+george_ai.learn_from_interaction("¿Cómo estás?", "Estoy bien, gracias por preguntar.")
+print(george_ai.get_response("¿Cómo estás?"))
+george_ai.learn_from_interaction("¿Cómo estás?", "Estoy genial, ¿y tú?")
